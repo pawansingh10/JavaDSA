@@ -167,7 +167,7 @@ int fact(int n)
 ```
 
 ```Java
-   //nth Fibonnacci term
+//nth Fibonnacci term
    int fib(int n){
      if(n==1) return 0;
      if(n==2) return 1;
@@ -176,10 +176,10 @@ int fact(int n)
 ```
 
 ```Java
-   // Given a num n, find the minimum steps to minimize the num n to 1
-   // If n is divisible by 3, n->n/3
-   // If n is divisible by 3, n->n/2
-   // Decrement the num by 1, n->n-1
+// Given a num n, find the minimum steps to minimize the num n to 1
+// If n is divisible by 3, n->n/3
+// If n is divisible by 3, n->n/2
+// Decrement the num by 1, n->n-1
    
    int count=0;
    while(n>1){
@@ -188,11 +188,11 @@ int fact(int n)
        else n=n-1;
        count++;
    }
-   //This seems to be logically correct but actually it is not like in case of 10
+//This seems to be logically correct but actually it is not like in case of 10
    
    
-   //So actual correct logic
-   import java.util.*;
+//So actual correct logic
+import java.util.*;
 public class Main
 {
 	public static void main(String[] args) {
