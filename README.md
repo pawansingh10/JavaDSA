@@ -155,6 +155,7 @@
 
 ### Code
 ```java
+//Factorial of a num using Recursion
 int fact(int n)
 {
   if(n==0)
@@ -163,4 +164,12 @@ int fact(int n)
   }
   return n*fact(n-1); 
 }
+```
+
+```Java
+   //nth Fibonnacci term
+   int fib(int n){
+   if(n==1) return 0;
+   if(n==2) return 1;
+   else return fib(n-1)+fib(n-2);
 ```
