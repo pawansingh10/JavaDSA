@@ -246,3 +246,33 @@ public class Main
 }
 
 ```
+
+```Java
+//min steps to reduce n to 1 through recursion
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		System.out.println(minSteps(n));
+	}
+	public static int minSteps(int n){
+	    if(n==1){
+	        return 0;
+	    }
+	   
+	    int sub = Integer.MAX_VALUE; // min step to reduce n to n-1
+	    int div3 = Integer.MAX_VALUE;
+	    int div2 = Integer.MAX_VALUE;
+	    sub = minSteps(n-1);
+	    if(n%3==0){
+	        div3=minSteps(n/3);
+	    }
+	    if(n%2==0){
+	        div2=minSteps(n/2);
+	    }
+	    return  1+Math.min(sub,Math.min(div3,div2));
+	}
+}
+```
