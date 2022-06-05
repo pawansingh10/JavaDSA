@@ -154,7 +154,7 @@
 3. **Generalize the Solution**
 
 ### Code
-'''java
+```java
 int fact(int n)
 {
   if(n==0)
@@ -163,5 +163,4 @@ int fact(int n)
   }
   return n*fact(n-1); 
 }
-
-'''
+```
