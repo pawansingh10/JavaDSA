@@ -10,6 +10,7 @@
 
 
 ### Print Hello
+***
 ```Code
 public class Main
 {
@@ -20,13 +21,14 @@ public class Main
 ```
 
 ### Variable,Memory
+***
 - Variable declaration
 - Variable Initialization
 - variable Assignment
 
 
 ### Data Types
-
+***
 #### Primitive Data types
 1. int       ->  4 bytes
 2. long      ->  8 bytes
@@ -43,6 +45,7 @@ public class Main
 
 
 ### Packages
+***
 - Collection of pre-written code by developers
 - Scanner -> import java.util.scanner;
 - System  -> import java.lang.*;
@@ -51,6 +54,7 @@ public class Main
 
 
 ### Taking input
+***
 ```code
      Scanner sc = new Scanner(System.in);
      
@@ -69,6 +73,7 @@ public class Main
 ```
 
 ### Operators
+***
 ```code
    int c=a+b;
    int c=a-b;
@@ -87,6 +92,7 @@ public class Main
 ```
 
 ### Loops
+***
 ```Code
    //For loop
    for(int counter=1; counter<=10; count++)
@@ -112,6 +118,7 @@ public class Main
 
 
 ### Type Casting
+***
 - UpCastiing -> Automatically
 -```int to double ```
 - DownCasting -> Manually 
@@ -119,12 +126,14 @@ public class Main
 
 
 ### Pattern Printing
+***
 
 
 
 
 
 ### ARRAYS
+***
 - Contiguous Memory Allocation that is used to store similar data type 
 - ```code
      int [] arr = new int[10];
@@ -138,10 +147,14 @@ public class Main
      }```
 
 ### 2D ARRAYS
+***
 - Array of Arrays
 - Excelsheet, ChessBoard, ClassRoom
 - ```code
   //Sum of black and white in chesscard
+  
+  int sum=0;
+  for(int i=0; i<)
   
 ```
 ```code
@@ -151,6 +164,7 @@ public class Main
 
 
 ### Switch 
+***
 ```code
 import java.util.*;
 public class Main
@@ -185,17 +199,19 @@ public class Main
 
 
 ### CHARACTER
+***
 - Special character to store every thing
 - Capital Letter, Small Letter, Numbers, Symbols
 - Computer only understand only 0/1, then how we these values store
 - They are store using **ASCII** Universal Standards followed by compiler to use the character
-- ASCII from =='A' to 'Z' -> 65 to 90==
-- ASCII from =='a' o 'z' -> 97 to 122==
-- ASCII from =='0' to '9' -> 48 to 57==
+- ASCII from 'A' to 'Z' -> 65 to 90
+- ASCII from 'a' o 'z' -> 97 to 122
+- ASCII from '0' to '9' -> 48 to 57
 
 
 
 ### Comments
+***
 - Line of code ignore by compiler while executing
 - Useful for us as a reference not for compiler
 - Documenting the code to someone understand what exactly the code is doing
@@ -211,20 +227,141 @@ public class Main
   */
 ```
 
+### Break and Continue
+***
+- ```break -> break out of loop```
+- ```continue -> Skip everything and go to the next iteration of loop```
 
+
+### For Each loop
+***
+```code
+   int[] arr = {1,2,3,4,5};
+   for(int x : arr)
+   {
+     System.out.println(x);
+   }
+```
+
+### Scope of variable
+![image](https://user-images.githubusercontent.com/47448422/172049602-dc2b9a1c-66dd-44ee-9dc5-4a73f0503e73.png)
 
 ### Functions
-$ f(x) = x^2^ + 2x + 1
+***
+$ f(x) = x^2 + 2x + 1
+- One of the principle people follow in Software Industry is ***DRY==Don't Repeat Yourself***
+1. Function reduces the redundency of code
+2. Functions makes Debugging easy
+3. > **MODULAR** EASIER TO READ,UNDERSTAND AND MAINTAIN THE CODE
+4. Quarantine all features 
+
+```code
+  return_type function_name(arguments)
+  {
+    System.out.println("Hello");
+    return ;
+  }
+```
+
+```code
+int square(int num)
+{
+   int ans = num*num;
+   return ans;
+}
+
+void square1(int num)
+{
+  System.out.println(num*num);
+}
+```
+
+> **main() method is the starting point of any java program**
+> **Whenever a function call starts a context associated with it created**
+
+
+
+### STRING
+- Non-Primitive data type because Strings are made up of concatenating multiple character
+- Every string is function associated with it
+```code
+   String str = "Love Everything!"
+   str.length(); //16
+   str.charAt(0); // L
+   str.indexOf('z'); //-1
+   str.indexOf('e'); //3
+   str.indexOf('e',4); //7 start searching from index 4
+   str.indexOf("Love"); //0
+   str.indexOf("Love", 5); //-1
+   str.toUpperCase();
+   str.toLowerCase();
+   Character.toUpperCase('o'); // O
+```
+
+### Substring Vs Subsequence
+***
+- **SubArray/SubString/SubSequence**
+> ***Continuous part of string is SubsString***
+> ***Continuous or non continuous part of string is subsequence, subsequence might not be ordering***
+```code
+  int[] arr = {1,3,5,7,11,3,5,8];
+  subsequence = [3,7,5] // same sequence so subsequence
+  subarray    = [3,5,7] // subarray because of continuous
+  
+  String str = "Hello Java";
+  str.subString(3); // gives substring from index 3 till end
+  str.subString(1,3); // gives substring from index 1 to 2
+  str.replace('e','E'); // replace e to E
+```
+> ***Strings are immutable, that means whever we modify the string actually the original string is as it is and a new copy of string is created***
+
+```java
+   // String pool/String literal Vs String Object
+   String s = "Hello My Name"; // String literal
+   String s = new String("Hello My Name"); // String obj
+   
+   s.split(" "); // split the string on the basis of passed delimeter
+   
+   String [] str = s.split();
+   for(String x : str)
+   {
+      System.out.println(x);
+      
+   }
+   
+   //Printing array
+   System.out.println(Arrays.toString(str));
+   // output ["Hello","My","Name"]
+   
+   
+   
+```
 
 
 
 
+
+### TIME & SPACE COMPLEXITY
+***
+- ***When Application is deploy in production, millions of users are going to use is. So the Scaling up,Effiecient use of resources and  Effiency of task executions matters a lot because of everything has its cost!***
+- Writting Efficient Code in this real healthy competitive market is important for business perspective
+
+```
+  Swiggy Vs Zomato delivery time
+  Payment Gateways while tranferring money
+```
+
+- RAM is very low in size, very expensive because of made up of semi-conductor
+- Time and Space complexity are 2 critical evaluation of a program.
+
+1. Time Complexity -> Time taken by the program  to run as a function of input
 
 
 
 
 
 ## Recursion
+***
 * Recursion is build up of concept of function
 * A function calling itself is called Recursion
 
