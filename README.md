@@ -154,7 +154,7 @@
 3. **Generalize the Solution**
 
 ### Code
-'''code
+'''java
 int fact(int n)
 {
   if(n==0)
