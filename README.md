@@ -144,9 +144,8 @@ public class Main
   //Sum of black and white in chesscard
   
 ```
-- ```code
+```code
   //Zig-Zag Trversal of Array
-  
 ```
 
 
@@ -190,13 +189,32 @@ public class Main
 - Capital Letter, Small Letter, Numbers, Symbols
 - Computer only understand only 0/1, then how we these values store
 - They are store using **ASCII** Universal Standards followed by compiler to use the character
-- =='A' to 'Z' -> 65 to 90==
-- =='a' o 'z' -> 97 to 122==
-- =='0' to '9' -> 48 to 57==
+- ASCII from =='A' to 'Z' -> 65 to 90==
+- ASCII from =='a' o 'z' -> 97 to 122==
+- ASCII from =='0' to '9' -> 48 to 57==
 
 
 
+### Comments
+- Line of code ignore by compiler while executing
+- Useful for us as a reference not for compiler
+- Documenting the code to someone understand what exactly the code is doing
+```code
+  // single line comment
+  
+  /*
+  ABC
+  DEF
+  ...
+  ...
+  XYZ
+  */
+```
 
+
+
+### Functions
+$f(x)=x^2^+2x+1
 
 
 
