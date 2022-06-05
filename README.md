@@ -21,6 +21,7 @@ public class Main
 
 ### Variable,Memory
 - Variable declaration
+- Variable Initialization
 - variable Assignment
 
 
@@ -41,129 +42,157 @@ public class Main
 2. Array
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+### Packages
+- Collection of pre-written code by developers
+- Scanner -> import java.util.scanner;
+- System  -> import java.lang.*;
+- Math    -> import java.util.math;
+
+
+
+### Taking input
+```code
+     Scanner sc = new Scanner(System.in);
+     
+     int a = sc.nextInt();
+     int b = sc.nextLong();
+     int c = sc.nextFloat();
+     int d = sc.nextDouble();
+     int e = sc.nextShort();
+     int f = sc.nextBoolean();
+     int g = sc.nextByte();
+     char h = sc.nextChar();
+     
+     String s = sc.next();
+     String str = sc.nextLine();
+     
+```
+
+### Operators
+```code
+   int c=a+b;
+   int c=a-b;
+   int c=a*b;
+   int c=a/b;
+   int c=a%b;
+   
+   if(a<b)
+   else if(a>b)
+   else if(a<=b)
+   else if(a>=b)
+   
+   if(a==b && b==c)
+   if(a==b || b==c)
+   if(a!=b)
+```
+
+### Loops
+```Code
+   //For loop
+   for(int counter=1; counter<=10; count++)
+   {
+     System.out.println("Counter:"+counter);
+   }
+   
+   //While loop
+   int i=1;
+   while(i<10)
+   {
+     System.out.println("Hello:"+i);
+     i++;
+   }
+   
+   // do while loop
+   int i=0;
+   do{
+      System.out.println("Hello"+i);
+      i++;
+   }while(i<10);
+```
+
+
+### Type Casting
+- UpCastiing -> Automatically
+-```int to double ```
+- DownCasting -> Manually 
+-```double to int```
+
+
+### Pattern Printing
+
+
+
+
+
+### ARRAYS
+- Contiguous Memory Allocation that is used to store similar data type 
+- ```code
+     int [] arr = new int[10];
+     //Taking array input
+     for(int i=0; i<10; i++){
+         arr[i]=sc.nextInt();
+     }
+     //Printing array element
+     for(int i=0; i<10; i++){
+         System.out.print(arr[i]+" ");
+     }```
+
+### 2D ARRAYS
+- Array of Arrays
+- Excelsheet, ChessBoard, ClassRoom
+- ```code
+  //Sum of black and white in chesscard
+  
+```
+- ```code
+  //Zig-Zag Trversal of Array
+  
+```
+
+
+
+### Switch 
+```code
+import java.util.*;
+public class Main
+{
+  public static void main (String[]args)
+  {
+    int num = 8;
+    switch (num)
+      {
+      case 1:
+	System.out.println ("MON");
+	break;
+	case 2:System.out.println ("TUE");
+	break;
+	case 3:System.out.println ("WED");
+	break;
+	case 4:System.out.println ("THU");
+	break;
+	case 5:System.out.println ("FRI");
+	break;
+	case 6:System.out.println ("SAT");
+	break;
+	case 7:System.out.println ("SUN");
+	break;
+	default:System.out.println ("Wrong Input");
+      }
+
+  }
+}
+
+```
+
+
+### CHARACTER
+- Special character to store every thing
+- Capital Letter, Small Letter, Numbers, Symbols
+- Computer only understand only 0/1, then how we these values store
+- They are store using **ASCII** Universal Standards followed by compiler to use the character
+- =='A' to 'Z' -> 65 to 90==
+- =='a' o 'z' -> 97 to 122==
+- =='0' to '9' -> 48 to 57==
 
 
 
