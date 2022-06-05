@@ -346,15 +346,17 @@ void square1(int num)
 - ***When Application is deploy in production, millions of users are going to use is. So the Scaling up,Effiecient use of resources and  Effiency of task executions matters a lot because of everything has its cost!***
 - Writting Efficient Code in this real healthy competitive market is important for business perspective
 
-```
-  Swiggy Vs Zomato delivery time
-  Payment Gateways while tranferring money
-```
+```Swiggy Vs Zomato delivery time```
+```Payment Gateways while tranferring money```
 
 - RAM is very low in size, very expensive because of made up of semi-conductor
 - Time and Space complexity are 2 critical evaluation of a program.
 
-1. Time Complexity -> Time taken by the program  to run as a function of input
+- **Time Complexity** -> Time taken by the program  to run as a function of input
+1. **Best Case (Omega)**
+2. **Average Case (Theta)**
+3. **Worst Case (O))**
+```O(logn) < O(n) < O(nlogn) < O(n^2) < O(n^3) < O(2^n) < O(3^n)```
 
 
 
