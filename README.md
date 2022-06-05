@@ -2,6 +2,45 @@
 
 ## DSA by Java Repository 
 
+- ***Success is Vector(Magnitude+Direction)***
+
+### Computer Programming == Computer + Program
+
+### DSA == Data Structure + Algorithm
+
+
+### Print Hello
+```Code
+public class Main
+{
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+	}
+}
+```
+
+### Variable,Memory
+- Variable declaration
+- variable Assignment
+
+
+### Data Types
+
+#### Primitive Data types
+1. int       ->  4 bytes
+2. long      ->  8 bytes
+3. float     ->  4 bytes
+4. double    ->  8 bytes
+5. char      ->  2 bytes
+6. short     ->  2 bytes
+7. byte      -> 1 byte
+8. boolean   -> 1 byte
+
+#### Non-Primitive Data types
+1. String
+2. Array
+
+
 
 
 
