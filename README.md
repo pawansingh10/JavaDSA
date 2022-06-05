@@ -214,7 +214,7 @@ public class Main
 
 
 ### Functions
-$f(x)=x^2^+2x+1
+$ f(x) = x^2^ + 2x + 1
 
 
 
