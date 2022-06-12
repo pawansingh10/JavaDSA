@@ -515,7 +515,7 @@ public class Main
 ### 1. Linear Search 
 * Search in a linear fashion
 * Time Complexity O(N)
-```code
+```Java
    int[] arr = {3,5,8,9,11};
    int target = 8;
    int index=-1;
@@ -534,7 +534,7 @@ public class Main
 * Array must be in sorted order
 * Left=0, right=n; mid=(l+r)/2 concept
 * Time Complexity - O(logN)
-```code
+```Java
   int[] arr = {1,2,3,4,5,6,8};
   int target = 8;
   int index = -1;
@@ -555,7 +555,7 @@ public class Main
      {
         l=mid+1;
      }
-     
+   } 
      System.out.println(index);
 ```
 
