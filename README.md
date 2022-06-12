@@ -546,6 +546,7 @@ public class Main
      if(arr[mid]==target)
      {
         index=mid;
+	break;
      }
      else if(arr[mid]>target)
      {
