@@ -563,10 +563,10 @@ public class Main
 - ```Complexity will be limit to O(logn)```
 - ```Sorted Array will be given that means you have to use BS```
 - ```Binary search on answers, high level question actually given array is not sorted still it will use binary search```
-- ```Sometimes it overflows due to range mid=(l+r)/2 so at that time prefer mid=l+(r-l)/2; 
+- ```Sometimes it overflows due to range mid=(l+r)/2 so at that time prefer mid=l+(r-l)/2;```
 
 ```Java
-   /Binary Search on Reverse Sorted Array
+   //Binary Search on Reverse Sorted Array
 
 public class Main
 {
