@@ -559,4 +559,8 @@ public class Main
    } 
      System.out.println(index);
 ```
+### Important Notions of BS
+- ```Complexity will be limit to O(logn)```
+- ```Sorted will be given that means you have to use BS```
+- ```Binary search on answers, high level question actually given array is not sorted still it will use binary search```
 
