@@ -501,3 +501,61 @@ public class Main
 	}
 }
 ```
+
+
+
+
+
+
+
+
+
+## Searching
+***
+### 1. Linear Search 
+* Search in a linear fashion
+* Time Complexity O(N)
+```code
+   int[] arr = {3,5,8,9,11};
+   int target = 8;
+   int index=-1;
+   for(int i=0; i<arr.length; i++)
+   {
+       if(arr[i]==target)
+       {
+         index=i;
+       }
+   }
+   System.out.print(index);
+```
+
+### 2. Binary Search
+* Searching by dividing the array by n/2 every time
+* Array must be in sorted order
+* Left=0, right=n; mid=(l+r)/2 concept
+* Time Complexity - O(logN)
+```code
+  int[] arr = {1,2,3,4,5,6,8};
+  int target = 8;
+  int index = -1;
+  int l = 0;
+  int r = arr.length-1;
+  while(l<=r)
+  {
+     int mid=(l+r)/2;
+     if(arr[mid]==target)
+     {
+        index=mid;
+     }
+     else if(arr[mid]>target)
+     {
+        r=mid-1;
+     }
+     else
+     {
+        l=mid+1;
+     }
+     
+     System.out.println(index);
+```
+
