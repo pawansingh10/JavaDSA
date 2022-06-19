@@ -803,6 +803,7 @@ class Person {
 ## Constructor
 ***
 - Constructor is used to create object
+- Constructors don't have return type
 - If you don't write your constructor java will provide you default constructor 
 - Default constructor takes no argument
 - ``` Person p1 = new Person(); ```
@@ -849,9 +850,16 @@ class Person {
 	    
 	    
 	    
+	    void dance(){
+	        System.out.println(name+" is dancing.");
+		dance(5);
+		
+	    }
 	    
 	    void dance(){
 	        System.out.println(name+" is dancing.");
+		this.dance(5); //equivalent to dance(6);
+		
 	    }
 	    
 	    void dance(int time){
@@ -859,3 +867,244 @@ class Person {
 	    }
 }
 ```
+
+## Static Keyword
+***
+[x] Count the track of how many objects are created of a class
+```Java
+public class Main
+{
+	public static void main(String[] args) {
+	  Person p1 = new Person("Abc",22);
+	  Person p2 = new Person("Xyz",24);
+	  
+	  System.out.println(Person.count);
+	}
+	
+}
+
+class Person {
+        static int count;
+	    String name;
+	    int age;
+	    
+	    Person(String name, int age){
+	        this.name=name;
+	        this.age=age;
+	        count++;
+	        dance();
+	    }
+	    
+	    
+	    void dance(){
+	        System.out.println(name+" is dancing.");
+	        this.dance(5);
+	    }
+	    
+	    void dance(int time){
+	        System.out.println(name+" has been dancing since "+time+" minutes.");
+	    }
+}
+```
+1. Static Variable
+```Java static int count; 
+        Class.count;
+```
+2. Static Method
+```Java static void abc(){
+       System.out.println("Static Method");
+    }
+    Person.abc();
+```
+
+- Why main static?
+``` Main method is the Starting point of any java program ```
+- because if we need an object to call main method then it is not feasible in this case
+- Main method is responsible for creating object
+- Static method doesn't require the object to call
+``` .java     
+    javac      A.class   B.class    ByteCode
+    
+    JRE call B.main()
+```
+
+## Inheritance
+***
+1. Parent Class
+2. Child Class
+```Java
+   class Person{
+         String name;
+	 int age;
+   }
+   
+   class Developer{
+         String name;
+	 int age;
+	 String github_user;
+   }
+   
+   class Doctor{
+         String name;
+	 int age;
+	 String degree;
+   }
+```
+- When the Constructor of child class run, first of all Constructor of Parent class be invoked!
+```Java
+public class Main
+{
+	public static void main(String[] args) {
+	  Person p1 = new Person();
+	  Developer dv1 = new Developer();
+	  Doctor d1 = new Doctor();
+	}
+	
+}
+
+class Person {
+	String name;
+	int age;
+	
+	public Person(){
+	    System.out.println("Person has been born");
+	}
+}
+
+class Developer extends Person{
+    String github_user;
+    public Developer(){
+        System.out.println("Developer has been born");
+    }
+}
+
+class Doctor extends Person{
+    String degree;
+    
+    public Doctor(){
+        System.out.println("Doctor has been born");
+    }
+}
+```
+
+## super Keyword
+***
+```Java
+public class Main
+{
+	public static void main(String[] args) {
+	  Doctor d1 = new Doctor("Dr Abc",24,"MBBS");
+	  d1.getdetails();
+	}
+	
+}
+
+class Person {
+	String name;
+	int age;
+	
+	public Person(String name, int age){
+	    this.name=name;
+	    this.age=age;
+	}
+	
+	public void getdetails(){
+        System.out.println("Name="+name+" Age="+age);
+    }
+}
+
+class Doctor extends Person{
+    String degree;
+    
+    public Doctor(String name, int age, String degree){
+        //this.name=name;
+        //this.age=age;
+        super(name,age); //Person(name,age);
+        this.degree = degree;
+    }
+    
+    public void getdetails(){
+        System.out.println("Name="+name+" Age="+age+" Degree="+degree);
+    }
+}
+```
+
+## Runtime Polymorphism or Dynamic Method Dispatch
+***
+```Java
+public class Main
+{
+	public static void main(String[] args) {
+	  Doctor d1 = new Doctor("Dr Abc",24,"MBBS");
+	  d1.getdetails();
+	  d1.dance();
+	}
+	
+}
+
+class Person {
+	String name;
+	int age;
+	
+	public Person(String name, int age){
+	    this.name=name;
+	    this.age=age;
+	}
+	
+	public void getdetails(){
+        System.out.println("Name="+name+" Age="+age);
+    }
+    
+    public void dance(){
+        System.out.println("Person is dancing");
+    }
+}
+
+class Doctor extends Person{
+    String degree;
+    
+    public Doctor(String name, int age, String degree){
+        //this.name=name;
+        //this.age=age;
+        super(name,age); //Person(name,age);
+        this.degree = degree;
+    }
+    
+    public void getdetails(){
+        System.out.println("Name="+name+" Age="+age+" Degree="+degree);
+    }
+    
+    // public void dance(){
+    //     System.out.println("Doctor is dancing");
+    // }
+}
+```
+
+### final keyword
+- Nobody can change/override the final attributes/method
+```java final void dance(){
+         //
+    }
+```
+
+```java
+   Person p1 = new Person();
+   p1.
+   
+   Doctor d1 = new Doctor();
+   d1.
+   
+   Person p1 = new Doctor();
+   // reference to Parent class object, pointed to child class object
+   p1.age;
+   p1.name;
+   p1.dance();//Here Dynamically at runtime decide which dance() method detect
+```
+
+> **In Java every class inherits the "Object" class**
+> **Types of Inheritance**
+1. Single-Level Inheritance
+2. Multi-Level Inheritance
+3. Hierarchical Inheritance
+4. Multiple Inheritance // Doesn't support by Java Diamond Problem
+5. Hybrid Inheritance
