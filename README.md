@@ -794,3 +794,33 @@ class Person {
 	    }
 }
 ```
+``` If you give to a baby they baby will cry, if you give chocolate baby then baby will smile ```
+- Above is the example of Compile Time Polymorphism (Method Overloading)
+- because even before run your program compiler knows that there are different types of methods based on arguments pass
+- We will see later Run Time Polymorphism (Method Overloading)
+
+
+## Constructor
+***
+- Constructor is used to create object
+- If you don't write your constructor java will provide you default constructor 
+- Default constructor takes no argument
+- ``` Person p1 = new Person(); ```
+- If you want to send name and age as argument definately default constructor will not help
+- ``` Person p2 = new Person("Ram",14); ```
+- The moment you write your own constructor java default constructor will lost
+
+> **If you don't give any access modifier it will be default**
+```Java
+   class Person {
+	    String name; 
+	    int age;
+	    
+	    void dance(){
+	        System.out.println(name+" is dancing.");
+	    }
+   }
+```
+
+## this keyword
+***
