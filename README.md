@@ -824,3 +824,38 @@ class Person {
 
 ## this keyword
 ***
+1. this refers to the object
+2. by using this we will set data members and call methods
+3. Constructor Chaining
+
+> Note-1: Only the first line can be the constructor call in the Constructor Chaining
+> Note-2: There must be at least one constructor which has no other Constructor Call otherwise it would be infinite loop
+> Note-3: Chaining can be any order, Ordering is not important
+
+```Java
+class Person {
+	    String name;
+	    int age;
+	    //Constructor
+	    void Person(String newName, int newAge){
+	        name = newName;
+	        age  = newAge;
+	    }
+	    
+	    public Person(String name, int age){
+	        this.name = name;
+	        this.age  = age;
+	    }
+	    
+	    
+	    
+	    
+	    void dance(){
+	        System.out.println(name+" is dancing.");
+	    }
+	    
+	    void dance(int time){
+	        System.out.println(name+" has been dancing since "+time+" minutes.");
+	    }
+}
+```
