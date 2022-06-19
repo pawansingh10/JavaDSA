@@ -671,7 +671,7 @@ public class Main
 
 ## OOP - Object Oriented Programming
 ***
--[x] Why OOP?
+[x] Why OOP?
 - OOP is very important principle When we deal with or solve any real life practical problem
 
 > **Software Developer is  expected to know basic of OOP because whenever you work for any company, you have to deal with problems that has pratical usecase**
@@ -687,7 +687,8 @@ public class Main
 - Class is a **Blueprint** or **Template** of How something look like.
 - A **.java** file can have atmost 1 (0,1) public class
 - Name of Public Class and Name of File should br matching
-- ```Java
+
+```Java
 // file name should be Main.java
    public class Main
 {
