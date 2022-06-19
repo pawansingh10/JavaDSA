@@ -596,3 +596,200 @@ public class Main
 	}
 }
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## OOP - Object Oriented Programming
+***
+-[x] Why OOP?
+- OOP is very important principle When we deal with or solve any real life practical problem
+
+> **Software Developer is  expected to know basic of OOP because whenever you work for any company, you have to deal with problems that has pratical usecase**
+
+- Example -> AMAZON Market Place, Sellers upload thier products to Amazon Plaform through code
+
+### 3 Important Characteristics of OOPs that's why use in Practical world
+1. OOP makes our program **Moduler**
+2. OOP reduce **Redundency**
+3. OOP ensure **Data Protection/Privacy**
+
+## Class
+- Class is a **Blueprint** or **Template** of How something look like.
+- A **.java** file can have atmost 1 (0,1) public class
+- Name of Public Class and Name of File should br matching
+- ```Java
+// file name should be Main.java
+   public class Main
+{
+	public static void main(String[] args) {
+		
+	}
+}
+``` 
+- A class doesn't occupy memory by itself
+```Java
+   public class Main
+{
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+	}
+	
+	Class Person{
+	    String name;
+	    int age;
+	}
+	
+	Class House{
+	    int bedroom;
+	    int hall;
+	    int kitchen;
+	    int windows;
+	}
+	
+	
+}
+```
+
+## Object
+***
+- Object is an instance of a Class
+- By using object we instantiate the class
+```java
+   public class Main
+{
+	public static void main(String[] args) {
+		Person p1 = new Person();
+		System.out.println(p1.name+" "+p1.age);
+	}
+	
+}
+
+class Person {
+	    String name;
+	    int age;
+}
+```
+- 	Person p1 = new Person(); -> This function is called Constructor 
+> **Constructor is a special method which is responsible for creating an object**
+
+- **Default Constructor**
+ - If we do not create any constructor then default constructor of Java will be called & Object will be created.
+ - Name of Constructor is same as the name of class
+
+- Object is only created at runtime
+- Objects are always present in **Heap-Memory**
+- ![image](https://user-images.githubusercontent.com/47448422/174479057-f34ac76f-5a60-43f1-8807-534e6f7f2bb2.png)
+
+### Attributes/Properties
+- Only having attributes is not sufficient
+### Method/Behavior
+```Java
+public class Main
+{
+	public static void main(String[] args) {
+		Person p1 = new Person();
+		System.out.println(p1.name+" "+p1.age);
+		p1.dance();
+	}
+	
+}
+
+class Person {
+	    String name;
+	    int age;
+	    
+	    void dance(){
+	        System.out.println(name+" is dancing.");
+	    }
+	    
+}
+```
+
+## Polymorphism
+***
+- Poly(many) + Morphism(form)
+- Function name is same but taking different different arguments
+```Java
+   class Person {
+	    String name;
+	    int age;
+	    
+	    void dance(){
+	        System.out.println(name+" is dancing.");
+	    }
+	    
+	    void dance(int time){
+	        System.out.println(name+" has been dancing since "+time+" minutes.");
+	    }
+}
+```
