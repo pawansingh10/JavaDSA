@@ -1108,3 +1108,8 @@ class Doctor extends Person{
 3. Hierarchical Inheritance
 4. Multiple Inheritance // Doesn't support by Java Diamond Problem
 5. Hybrid Inheritance
+
+
+
+## OOP-3
+![image](https://user-images.githubusercontent.com/47448422/174635100-4518b9b1-f54c-4636-bce8-6bd3440b83a4.png)
