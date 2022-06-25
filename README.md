@@ -711,10 +711,111 @@ IVth pass of bubble sort has been performed
 Now We can say every elemt of array is sorted
 arr = [2,3,5,7,8]
 
+For n elements -> (n-1) pass
+1st pass -> (n-1) comparision
+2nd pass -> (n-2) comparision
+3rd Pass -> (n-3) comparision
+....         ....
+....         ....
+....         ....
+(n-1) pass     1 comparision
+------------------------------
+               n(n-1)/2 ==> O(n^2)
 ```
 
+- Num of comparision = n(n-1)/2 = O(n^2)
+- Num of Swaps     =  n(n-1)/2  = O(n^2)
 
+```Java
+   import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+	
+		int[] arr = new int[n];
+		for(int i=0; i<n; i++){
+		    arr[i]=sc.nextInt();
+		}
+		bubbleSort(arr);
+		System.out.println(Arrays.toString(arr));
+		
+	}
+	
+	 public static void bubbleSort(int[] arr) {
+        int n=arr.length;
+        
+        for(int i=0; i<n-1; i++){  //j<n-1-i
+            for(int j=0; j<n-1; j++){
+                if(arr[j]>arr[j+1]){
+                    int temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
+            }
+        }
+        
+    }
+}
+```
+- ***Time Complexity = O(n^2) || Space Complexity = O(1)***
+- **Worst case** -> even if the array is sorted it will took O(n^2)
 
+### **Stable Sorting Algorithm**
+- Relative position of the element 
+ ``` [1,2,8*,7,8] ---sorting---> [1,2,7,8*,8] Here Relative position of 8* & 8 are not change after sorting So It's Stable sorting```
+ ``` [1,2*,3,2**,8,2**,7]   ---sorting---> [1,2**,2***,2*,3,7,8] Here relative position 2 are change after sorting So, It's unstable sorting```
+ - Utility of Stability
+   - If two person having same name then arrival time will be consider with first come first serve
+   
+### **Adaptive Sorting Algorithm**
+- If array is already sorted then It should take lesser time to sort
+- If array is unsorted than it will took more time
+
+- We can make Bubble Sort Adaptive
+```Java
+    import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+	
+		int[] arr = new int[n];
+		for(int i=0; i<n; i++){
+		    arr[i]=sc.nextInt();
+		}
+		bubbleSort(arr);
+		System.out.println(Arrays.toString(arr));
+		
+	}
+	
+	 public static void bubbleSort(int[] arr) {
+        int n=arr.length;
+       
+        for(int i=0; i<n-1-i; i++){  //j<n-1-i
+	    int flag = 0;
+            for(int j=0; j<n-1; j++){
+                if(arr[j]>arr[j+1]){
+                    int temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+		     flag=1;
+                }
+                if(flag==0){
+                    break;
+                }
+            }
+        }
+        
+    }
+}
+
+```
+
+- Arrays.sort() uses dual pivot kind of Hybrid Algorithm which took O(nlogN)
+- Why w e need to write our own sorting 
 
 
 
