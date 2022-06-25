@@ -618,6 +618,100 @@ public class Main
 
 
 
+# SORTING
+***
+- Before Sorting no pattern of numbers/elements in the array
+- After Sorting there is a Pattern of numbers/elements
+```[2,3,8,5,7] ----->Certain Pattern in Ascending & Descending order```
+
+- **Ascending Order** - ```[2,3,5,7,8] or ['a','b','c','d']```
+- **Descending Order** - ```[8,7,5,3,2] or ['d','c','b','a']```
+
+#### Two Sum in an Array
+***
+```Java
+//Two sum in an array
+//Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		//input arr
+		int[] arr = new int[n];
+		for(int i=0; i<n; i++){
+		    arr[i]=sc.nextInt();
+		}
+		//input target
+		int target = sc.nextInt();
+		System.out.println(Arrays.toString(twoSum(arr,target)));
+		
+	}
+	
+	 public static int[] twoSum(int[] nums, int target) {
+        int n=nums.length;
+        int[] result = {-1,-1};
+        //lookimg for sum of two element in arr
+        for(int i=0; i<n; i++){
+            for(int j=i+1; j<n; j++){
+                if(nums[i]+nums[j]==target){
+                    result[0]=i;
+                    result[1]=j;
+                    return result;
+                }
+            }
+        }
+        return result;
+    }
+}
+```
+
+# 1. Bubble Sort
+***
+- There is a pond in village, when we throw the Stone in it the heaviest stone goes deep inside the surface at last and bubble is generated.
+- Heavist element goest to its last posion rest lighter is a
+```
+arr = [8,5,7,3,2]
+ Itr1  
+  8    5    5   5    5
+  5    8    7   7    7
+  7    7    8   3    3
+  3    3    3   8    2
+  2    2    2   2    8
+Ist pass of bubble sort has been perform on the given array
+Now 8 is its correct position
+arr = [5,7,3,2,8]
+5  5  5  5
+7  7  3  3
+3  3  7  2
+2  2  2  7
+8  8  8  8
+IInd Pass of bubble sort has been performed
+Now 7, 8 are on its correct position
+
+arr = [5,3,2,7,8]
+
+5  3  3
+3  5  2
+2  2  5
+7  7  7
+8  8  8
+IIIrd Pass of bubble sort has been performed
+Now 5,7,8 are on its correct position
+
+arr = [3,2,5,7,8]
+
+3  2
+2  3
+5  5
+7  7
+8  8
+IVth pass of bubble sort has been performed
+Now We can say every elemt of array is sorted
+arr = [2,3,5,7,8]
+
+```
 
 
 
