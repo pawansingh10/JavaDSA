@@ -1067,10 +1067,73 @@ MERGING
   i   20    j  25  k   10
   i   23           k   18
                    k   19
-i exhauseted		   k   20
+i exhauseted       k   20
 		   k   23
 		   k   25
 ```
+
+```Java
+// Merging Two Sorted Array in third Array
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    int m = sc.nextInt();
+	    int[] A = new int[m];
+	    for(int i=0; i<m; i++){
+	        A[i]=sc.nextInt();
+	    }
+	    
+	    int n = sc.nextInt();
+	    int[] B = new int[n];
+	    for(int i=0; i<n; i++){
+	        B[i]=sc.nextInt();
+	    }
+	    
+	    int[] C = new int[m+n];
+	    //System.out.println(Arrays.toString(C));
+	    merge(A,B,C);
+	    System.out.println(Arrays.toString(C));
+	}
+	
+	public static void merge(int[] A, int[] B, int[] C){
+	    int m=A.length;
+	    int n=B.length;
+	    
+	    int i=0;
+	    int j=0;
+	    int k=0;
+	    
+	    while(i<m && j<n){
+	        if(A[i]<B[j]){
+	            C[k]=A[i];
+	            i++;
+	            k++;
+	        }
+	        else{
+	            C[k]=B[j];
+	            j++;// C[k++]=B[j++]
+	            k++;//
+	        }
+	    }
+	    //Extra elements are also consider
+	    while(i<m){
+	        C[k++]=A[i++];
+	    }
+	    
+	    while(j<n){
+	        C[k++]=B[j++];
+	    }
+	    
+	   
+	}
+	
+}
+
+```
+
 
 
 
