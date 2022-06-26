@@ -815,22 +815,262 @@ public class Main
 ```
 
 - Arrays.sort() uses dual pivot kind of Hybrid Algorithm which took O(nlogN)
-- Why w e need to write our own sorting 
+- Why we need to write our own sorting?
+  - In Java built in sorting, we have no control over that we we use Arrays.sort() all elements got sorted.
+  - Suppose we need Kth Largest element of an Array
+  - 1st Largest element = arr[n-1];
+  - 2nd Largest element = arr[n-2];
+  - So, I would take Kth pass for Kth Largest element O(n*k)
+
+```Java
+//Kth Largest element and Kth Smallest element of an array
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    int n = sc.nextInt();
+	    int[] arr = new int[n];
+	    for(int i=0; i<n; i++){
+	        arr[i]=sc.nextInt();
+	    }
+	    int k = sc.nextInt();
+	    
+		System.out.println(kthLargest(arr,k));
+		System.out.println(kthSmallest(arr,k));
+	}
+	
+	public static int kthLargest(int[] arr,int k){
+	    Arrays.sort(arr);
+	    //Kth largest element in sorted array is arr[n-k]th
+	    return arr[arr.length-k];
+	    
+	}
+	
+	public static int kthSmallest(int[] arr, int k){
+	    Arrays.sort(arr);
+	    //Kth smallest element in sorted array in arr[k-1]
+	    return arr[k-1];
+	}
+}
+
+```
+
+
+## **INSERTION SORT**
+***
+- Insert element at the correct position in the already sorted array left side
+- Pick up element one by one and insert it into already sorted array with thier correct position
+- For n element in array (n-1) insertion
+
+```
+[8,5,7,3,2]
+[8] 5
+[5,8] 7
+[5,7,8] 3
+[3,5,7,8] 2
+[2,3,5,7,8]
+```
+```Java
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    int n = sc.nextInt();
+	    int[] arr = new int[n];
+	    for(int i=0; i<n; i++){
+	        arr[i]=sc.nextInt();
+	    }
+	    
+	    insertionSort(arr);
+	    System.out.println(Arrays.toString(arr));
+	}
+	
+	public static void insertionSort(int[] arr){
+	    // i start from 1 bcuz a single element is already sorted
+	    int n = arr.length;
+	    for(int i=1; i<n; i++){
+	        int x = arr[i];
+	        int j = i-1;
+	        //here we can't interchange condition otherwise runtime error 
+		// while(arr[j]>x && j>-1)
+	        while(j>-1 && arr[j]>x){       // j must be greater than  -1 otherwise IndexOutOfBound
+	            arr[j+1]=arr[j];
+	            j--;
+	        }
+	        arr[j+1]=x;
+	    }
+	    
+	}
+	
+}
+
+```
+```
+for n lements ----> (n-1) insertion
+1 comparision
+2 comparision
+3 Comparision
+...
+...
+...
+n-1 Comparision
+-------------------------------
+1+2+3+......+(n-1) = n(n-1)/2
+-------------------------------
+O(n^2)
+```
+> **Why sorting? If you don't apply sorting you find endup with higher time complexity.**
+
+> ***Something looks wonderful on paper But It's not granted in reality!***
+
+- **Stability**
+  - Insertion Sort is not adaptive because the condition that we pass like arr[j]>x by including arr[j]>=x we can make it adaptive
+
+- **Adaptibility**
+  - Insertion Sort by itself Adaptive 
+
+```Java
+  int[] arr = {5,8,9,1,4,6,7};
+
+  for(int i=1; i<n; i++){
+     int x = arr[i];
+     int j = i-1; 
+     while(arr[j]>x){   // j>-1
+         arr[j+1]=arr[j];
+	 j--;
+     }
+     // j+1 is the correct index for x
+     arr[j+1]=x;
+     
+     System.out.println(Arrays.toString(arr));
+  }
+```
 
 
 
+## SELECTION SORT
+***
+- We select an index and we find the correct number that should be at that index
+
+```
+[1,4,2,5,3]
+ 0 1 2 3 4
+ 
+ for index 0 = whatever minimum element of the array should be at index 0
+ now at index 0 there is a correct element
+ for index 1 = what ever the min element in remaining element in the array
+ [1,4,2,5,3]       min=1
+ [1] [4,2,5,3]     min=2
+ [1,2] [4,5,3]     min=3
+ [1,2,3] [4,5]     min=4
+ [1,2,3,4] [5]     min=5 even if there is a single element already it's minimun in itself
+ 
+ 
+ - - - - (_) last one is already it should be at correct position
+ 
+ For n elements ----> (n-1) pass
+ 
+```
+
+```
+[1,4,2,5,3]
+minIndex=i
+swap(arr[i],arr[minIndex])
+
+minIndex,i,j starts from 0
+           [1, 4, 2, 5, 3]
+            0  1  2  3  4
+	    
+  if( arr[j] < arr[minIndex] )
+            minIndex=j;
+	    
+```
+> 1. In Selection sort, i will find element for all indices 0,1,2,3.....n-1
+> 2. I look for the minimum element in between [i---->n-1]
+> 3. put at the index i = min element
+
+```java
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    int n = sc.nextInt();
+	    int[] arr = new int[n];
+	    for(int i=0; i<n; i++){
+	        arr[i]=sc.nextInt();
+	    }
+	    
+	    selectionSort(arr);
+	    System.out.println(Arrays.toString(arr));
+	}
+	
+	public static void selectionSort(int[] arr){
+	    int n=arr.length;
+	    //minIndex
+	    for(int i=0; i<n; i++){
+	        int minIndex=i;
+	        for(int j=i+1; j<n; j++){
+	            if(arr[j]<arr[minIndex]){
+	                minIndex=j;
+	            }
+	        }
+	       //swap(arr[i],arr[minIndex])
+	       // minIndex is storing the index of min element that is present (i to n-1)
+	       int temp = arr[i];
+	       arr[i] = arr[minIndex];
+	       arr[minIndex] = temp;
+              // 1st pass has been completed
+	      //System.out.println(Array.sort(arr));
+	    }
+	    
+	    
+	}
+	
+}
+```
+- Selection Sort has minimize the Swapping
+```
+   1+2+3+......+(n-1) = n(n-1)/2  = O(n^2)
+   
+   (n-1) swaps ---> O(n) Costly Operation
+```
+
+- Write an algorithm so that minimize the swap
+  - Always use Selection sort
+  
+- Selection sort is **Non-Adaptive**
+- How can  we make Selection Sort Adaptive?
+
+- Selection Sort is **Not Stable**
 
 
+## MERGE SORT
+***
+- Merge Sort is a sorting technique that will use **Recursion**
 
-
-
-
-
-
-
-
-
-
+```
+MERGING
+  A = [2,10,18,20,23]    | m size
+  B = [4,9,19,25]        | n size
+  Merge this 2 sorted array into a 3rd Array
+  
+  C = [2,4,9,10,18,19,20,23,25]   | (m+n) size
+  
+     A      B      C
+  i   2     j  4   k   2
+  i   10    j  9   k   4
+  i   18    j  19  k   9
+  i   20    j  25  k   10
+  i   23           k   18
+                   k   19
+i exhauseted		   k   20
+		   k   23
+		   k   25
+```
 
 
 
