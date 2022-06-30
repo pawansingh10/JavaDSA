@@ -1135,6 +1135,62 @@ public class Main
 ```
 
 
+```
+             l            mid              h
+[..........][2,  5,  8,  12,  3,  6,  7,  10 ][............]
+[l->mid]                |mid|                       [mid+1->h]
+```
+
+```Java
+   
+```
+
+- **Non Adaptive because even if sorted take O(nlogN)**
+- **Stability depends on if(A[i]<=A[j])**
+> ***Recurrence Relation T(n) = 2T(n/2) + O(n)***
+> 2T=n/2+n/2   &&   O(n) merging
+
+
+###  Sum
+```java
+  //
+   int[] arr  = {3,4,2,1,5};
+   int sum=10;
+   Arrays.sort(arr);
+   int ans=0;
+   int sum1=0;
+   for(int i:arr){
+      sum+=i;
+      if(sum<=sum1){
+          ans++;
+      }
+      else{
+         break;
+      }
+   }
+   System.out.println(ans);
+   
+   // Arrays.sort() || O(nlogn)
+   // for(i : arr)  || O(n)
+   //  --------------------
+   //                 O(nlogn+n)=O(nlogn)
+```
+
+
+### Buy Sell Stock
+***
+- Best Time to Buy & sell stock on leetcode
+- ```100 180 260 310 535 695```
+```Java
+
+```
+
+
+## QUICK SORT
+***
+
+
+
 
 
 
