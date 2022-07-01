@@ -1,9 +1,12 @@
 # Binary Search
 ***
 
-|DSA|
+| Data Structure   | Algorithm | Test Text     |
+| :---        |    :----:   |          ---: |
+| Header      | Title       | Here's this   |
+| Paragraph   | Text        | And more      |
 | ------------ | -------- |
-|Data Structure|Algorithm|
+
 |Array| Searching|
 |String| Sorting|
 |Stack| Filter|
