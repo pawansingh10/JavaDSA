@@ -1,7 +1,7 @@
 # Binary Search
 ***
 
-|---------DSA------------|
+|DSA|
 |--------------|---------|
 |Data Structure|Algorithm|
 |Array| Searching|
