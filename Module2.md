@@ -2,7 +2,7 @@
 ***
 
 |DSA|
-|--------------|---------|
+| ------------ | -------- |
 |Data Structure|Algorithm|
 |Array| Searching|
 |String| Sorting|
