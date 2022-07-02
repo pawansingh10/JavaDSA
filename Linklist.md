@@ -35,3 +35,66 @@ in the case of array here 20 Bytes contiguous memory alloted to array
    | :---      |          ---: |
   - **Node** is the Basic building block of LinkList
   - Node is something which we need to define it unlike int beacuse data could be anything object etc etc 
+
+``` Person p = new Person("Ram",14);```
+``` p is reference here  new keyword allocate memory```
+
+| Pointer     |             |  Reference Variavle|
+| :---        |    :----:   |          ---: |
+| Pointer is a variable that store addresses | | Reference Variable just hold references|
+
+
+## LinkList
+```Java
+lass Node{
+    int data;
+    Node next;
+    Node(int val){
+        data = val;
+    }
+}
+class LinkedList{
+    Node head;
+    void insert(int val){
+
+        Node newNode = new Node(val);
+        if(head==null)
+            head = newNode;
+        else {
+            Node temp = head;
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            temp.next = newNode;
+        }
+        return;
+    }
+    void printLL() {
+        Node temp = head;
+        while(temp!=null){
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+       LinkedList ll = new LinkedList();
+       ll.insert(2);
+       ll.insert(3);
+       ll.insert(56);
+       ll.insert(412);
+       ll.printLL();
+       ll.insert(100);
+       ll.printLL();
+        ll.insert(233);
+        ll.insert(536);
+        ll.insert(4112);
+        ll.printLL();
+    }
+}
+
+```
