@@ -122,4 +122,81 @@ System.out.println(c1+" "+c2+" "+c3);
 > **Auxiliary Space Complexity -> Extra Space used by Algorithm to Solve your problem**
 
 
+# Problems
+***
+## House Robber
+- [HouseRobber](https://leetcode.com/problems/house-robber/)
+```
+[1,2,3,1]
+     1+3=4  -> max value
+     2+1=3
+    
+[2,7,9,3,1]
+      2+9+1=12 -> even
+      7+3 =12  -> odd
+Note - Sum of even indices and odd indices that would be wrong
+``` 
+```Java
+//WRONG APPROACH
+int fun(int[] arr){
+int sumEven=0;
+int sumOdd=0;
+for(int i=0; i<n; i++){
+   if(i%2==0){
+      sumEven+=a[i];
+   }
+   else{
+      sumOdd+=a[i];
+   }
+}
+return Math.max(sumEven,sumOdd);
+
+}
+```
+```
+                             f(n)
+    Choose the nth element         f(n-1)
+    a[n-1] + f(n-2)
+1. Base Case
+2. State Representation
+3. Transition Repurcusion
+
+public int rob(int[] a){
+    return robA(a,a.length);
+}
+
+public int robA(int[] a, int n ){
+      if(n<0){
+          return 0;
+      }
+      int ch  = a[n-1]+robA(a,n-2);
+      int dch = robA(a,n-1);
+      return Math.max(ch,cdh);
+}
+
+               
+	          f(3)
+	       /       \
+	     /           \
+	   /               \
+         1 + f(2)           f(2) 
+	     /    \        /    \
+	 1+f(-1)   f(1)  1+f(-1)   f(1)
+```      
+
+> **Nothing Exist like Hard Problem but It is combination of small subproblems **
+
+## Cow Problem
+
+## Allocate Pages of Book
+
+## Make Bouqut
+
+## Cut the Tree
+
+- [Visualization](https://www.cs.usfca.edu/~galles/visualization/Search.html)
+
+
+## 
+
 
