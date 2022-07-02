@@ -568,3 +568,87 @@ public class Main
 
 ## QUICK SORT
 ***
+- Can you go stand with your correct position
+```   
+             ^
+          ^  |
+       ^  |  |
+   ^   |  |  |
+ ^ |   |  |  |
+```
+
+```
+    l              h
+  [ 4  3  1  2  8  9 ]
+pivot=4
+        pivot_index
+[1 3 2]   4    [8 9]
+
+```
+
+```Java
+void qSort(int[] A, int l, int h){
+     if(l<h){
+        int p=partition(A,l,h);
+	qSort(A,l,P-1);
+	qSort(A,P+1,h);
+     }
+}
+
+public Static int partition(int[] arr,int l,int h){
+        int pivot=arr[start];
+	int i=start;
+	int j=end;
+	while(i<j){
+	   while(i<=end && arr[i]<=pivot){
+	         i++;
+	   }
+	   while(arr[j]>pivot){
+	         j--;   
+	   }
+        }
+	
+	if(i<j){
+	    int temp=arr[i];
+	    arr[i]=arr[j];
+	    arr[j]=temp;
+	}
+}
+arr[start]=arr[j];
+arr[j]=pivot;
+return j;
+```
+
+```Java
+   public static void qs(int[] arr,int start,int end){
+         if(start>=end){
+	      return;
+	 }
+	 //start<end
+	 int p = partition(arr,start,end);
+	 qs(arr,start,p-1);
+	 qs(arr,p+1,end);
+	  
+   }
+```
+
+- O(nlogn)
+- General people go for Randomized QS
+```
+   int randomIndex = (start+end)/2;
+   int pivot = arr[randomIndex];
+   swap(arr[start],arr[randomIndex]);
+```
+
+```Java
+    import java.util.*;
+    Public class Main{
+        public static void main(String[] args){
+	     Arrays.sort(arr);//nlogn
+	     System.out.println(Arrays.toString(arr));
+	}
+    }
+```
+
+- **T(N)=O(n)}+2T(n/2)**
+- **T(N)=O(n)+T(n-1)**
