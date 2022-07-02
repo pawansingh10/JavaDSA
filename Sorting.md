@@ -652,3 +652,53 @@ return j;
 
 - **T(N)=O(n)}+2T(n/2)**
 - **T(N)=O(n)+T(n-1)**
+
+## Counting Sort
+
+```Java
+   import java.util.*;
+
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    int n = sc.nextInt();
+	    int[] arr = new int[n];
+	    for(int i=0; i<n; i++){
+	        arr[i]=sc.nextInt();
+	    }
+		countSort(arr);
+	}
+	
+	public static void countSort(int[] arr){
+	    int c1=0,c2=0,c3=0;
+	    for(int i=0; i<arr.length; i++){
+	        if(arr[i]==1){
+	            c1++;
+	        }
+	        else if(arr[i]==2){
+	            c2++;
+	        }
+	        else{
+	            c3++;
+	        }
+	    }
+	    System.out.println(c1+" "+c2+" "+c3);
+	    int[] brr=new int[arr.length];
+	    int k=0;
+	    while(k<c1){
+	        brr[k++]=1;
+	    }
+	    while(k<c1+c2){
+	        brr[k++]=2;
+	    }
+	    while(k<c1+c2+c3){
+	        brr[k++]=3;
+	    }
+	    System.out.println(Arrays.toString(brr));
+	}
+	
+}
+
+```
