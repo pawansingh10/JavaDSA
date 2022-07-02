@@ -184,9 +184,9 @@ public int robA(int[] a, int n ){
 	 1+f(-1)   f(1)  1+f(-1)   f(1)
 ```      
 
-> **Nothing Exist like Hard Problem but It is combination of small subproblems **
+> **Nothing Exist like Hard Problem but It is combination of small subproblems**
 
-## Cow Problem
+## Aggresive Cow Problem
 
 ## Allocate Pages of Book
 
@@ -194,9 +194,42 @@ public int robA(int[] a, int n ){
 
 ## Cut the Tree
 
-- [Visualization](https://www.cs.usfca.edu/~galles/visualization/Search.html)
+## [Visualization](https://www.cs.usfca.edu/~galles/visualization/Search.html)
 
 
-## 
+## Find the First Position of a element in a sorted array
+
+## First & last Occurence of an element
+
+## Find the count of number of Target element in sorted array
+- Ans = (Last_occ - first_occ)+1
+
+## Search in Rotated Sorted Array
+
+
+## Recursive Binary Search
+
+
+## Square Root of a num in Integer 
+
+## K Sum
+
+
+## Search in Biotonic Array
+
+## Binary Search in Infinite array
+
+## Minimum Difference element in the Sorted array
+
+## LeetCode 74
+
+
+
+
+## Find element in Row wise sorted array
+
+## Coco eating Banana
+
+## Biotonic array Peak elment
 
 
