@@ -384,3 +384,376 @@ public class Main{
       { 30KM/hr -> middle
       
 ```
+
+## Company Specific GFG Archive
+
+## LeetCode 2095
+```Java
+   ListNode fast = head;
+   ListNode slow = head;
+   while(temp!=null){
+       slow.next = slow.next;
+       if(fast.next!=null){
+           fast.next = fast.next.next;
+       }
+       else{
+           return slow;
+       }
+   }
+   
+   while(fast.next!=null && fast!=null){
+        fast = fast.next.next;
+	slow = slow.next;
+   }
+   return slow;
+   
+   prev = slow;
+   prev.next = slow.next;
+   }
+```
+
+## Reverse LinkedList
+```
+   Array [1|2|3|4|5]         Costly
+         [5|4|3|2|1]         Operation
+                             // Swaping or Changing data very costly
+                              Like swap(a,b)
+			           c = a;
+				   a = b;
+				   b = c;
+           prev      temp
+  prev     curr      curr      temp
+  null <-- 1  ---->  2  ----> 3 ----> 4 ----> null 
+```
+```Java
+     while(curr!=null){
+        temp = curr.next;
+	curr.next = prev;
+	prev = curr;
+	curr = temp;
+     }
+     return prev;
+     
+     Node prev = null;
+     Node curr = head;
+     Node temp;
+```
+```Java
+      reverseList(ListNode head){
+         ListNode curr = head;
+	 ListNode prev = null;
+	 ListNode temp = null;
+	 while(curr!=null){                  // O(n) Iterative Solution
+	     temp = curr.next;
+	     curr.next = prev;
+	     prev = curr;
+	     curr = temp;
+	 }
+	 return prev;
+      }
+```
+```Java
+ //we will just link to prev
+   reverse(Node curr, Node prev){
+     if(curr=null){
+         return prev;
+     }
+     Node temp = curr.next;
+     curr.next = prev;
+     recRev(temp,curr);
+     
+     
+     ListNode curr = head;
+     ListNode prev = null;
+     return recRev(curr,prev);
+     
+     public ListNode recRev(ListNode curr,ListNode prev){
+          if(curr==null){
+	      return prev;
+	  }
+	  ListNode temp = curr.next;
+	  curr.next = prev;
+	  return recRev(temp,curr);
+     }
+```
+
+## Print all the element of the LinkedList in reverse order without reversing List
+```
+   1 --> 2 --> 3 --> 4 --> 5
+               Recursion
+   1 --> 2 --> 3 --> 4 --> 5     | 5 |
+   1 --> 2 --> 3 --> 4           | 4 |
+   1 --> 2 --> 3                 | 3 |
+   1 --> 2                       | 2 |
+   1                             | 1 |
+       O(n^2)
+   
+```
+
+```Java
+       void printRev(ListNode curr){
+          if(curr==null){
+	       return;
+	  }
+	  printRev(curr.next){
+	      System.out.println(curr.temp);
+	  }
+       }
+```
+
+## Lecture 4
+- Interview 1.5 hrs
+  - Que 1
+  - Que 2
+  - Que 3
+
+- LinkedList Cycle  --> Fast Slow  O(n2)
+
+```Java
+    public boolean hasCycle(ListNode head){
+        ListNode fast = head;
+	ListNode slow = head;
+	while(fast!=null && fast.next!=null){
+	    fast = fast.next.next;
+	    slow = slow.next;
+	    if(fast==slow){
+	        return true;
+	    }
+	}
+	return false;
+    }
+                              slow 
+    fast/slow       slow      fast                       fast
+        1 --------> 2 ------> 3--------->  4 ----------> 5
+```
+
+
+## Palindrome LinkedList LeetCode 234
+```
+   head1              head 2
+     1 --> 2 --> 2 --> 1
+     
+     ---------->       <------------
+     1      2      3     2       1
+     
+  Step 1 - Find the middle node O(n)
+  Step 2 - Reverse the middle part two O(n)
+  Step 3 - Compare both part O(n)
+  
+  even length       mid 
+       1 -->  2   -->2   --->1
+       
+       1 -->  2 ---> 2 | <----- 1
+```
+```Java
+     public boolean isPalindrome(ListNode head){
+         ListNode slow = head;
+	 ListNode fast = head;
+	 while(fast!=null && fast.next!=null){
+	    slow = slow.next;
+	    fast = fast.next.next;
+	 }
+	 ListNode head2 = reverseList(slow);
+         ListNode head1 = head;
+	 while(head!=null && head2!=null){
+	    if(head1.val!=head2.val){
+	        return false;
+	    }
+	    head1 = head1.next;
+	    head2 = head2.next;
+	 }
+	 return true;
+     }
+     void reverse(ListNode slow){
+        //
+     }
+```
+
+## Remove LinkedList Element 203 LeetCode
+
+
+## Delete Node in a LinkedList
+```
+     4 --> 5 -->  1 --> 9 --> null
+             |
+	     V
+     4 --> 1 --> 9 --> null
+  
+  Copy next data & delete next     || No access to head
+```
+```Java
+   public void deleteNode(ListNode node){
+         Node.val = node.next.val;
+	 node.next = node.next.next;
+	 return;
+   }
+```
+
+## Merge Two Sorted List LeetCode 21
+```
+           1 --> 2 --> 4
+    
+           1 --> 3 --> 4
+  -----------------------------------------
+    1 --> 1 --> 2 --> 3 --> 4 --> 4 --> null
+```
+
+
+## Lecture 5
+- DSA is more about Practicing
+
+- Remove LinkedList Element
+```      X
+     () ----> () ----> () ----->null
+     prev     curr
+     
+     prev.next = curr.next;  -> remove
+     curr = curr.next;
+     
+     1. prev = curr
+        curr = curr.next
+     2. prev.next = curr.next
+        curr = curr.next
+     3. head = head.next
+        curr = head;
+```
+```java
+      if(head==null){
+          return head;
+      }
+      ListNode prev = null;
+      ListNode curr = head;
+      while(curr!=null){
+          if(curr.val==data){
+	      if(curr==head){
+	         head = head.next;
+		 curr = head;
+	      }
+	      else{
+	          prev.next=curr.next;
+		  curr = curr.next;
+	      }
+	  }
+	  else{
+	       prev = curr;
+	       curr = curr.next;
+	  }
+	  
+	  return head;
+      }
+      
+      
+```
+
+```Java
+    ListNode dummy = new Node(0);
+    ListNode prev = dummy,curr,head;
+    dummy.next = head;
+    
+    while(curr!=null){
+        if(curr!=null){
+	   if(curr.val==data){
+	       prev.next=curr.next;
+	       curr = curr.next;
+	   }
+	   else{
+	       prev = curr;
+	       curr = curr.next;
+           }
+	}
+      return dummy.next;
+    }
+    
+```
+
+
+## Remove nth Node from the End of the ListNode
+
+1. Use fast and Slow Pointer
+-  They will meet
+2. After they meet, make one of the pointer start again from the begining with the same speed 1 step
+3. They will meet as loop starting position
+- **FLOYD CYCLE DETECTION ALGORITHM**
+```
+   distance slow = x+y
+   distance fast = (x+y+z+y) = x+2y+z
+   
+    2X        X
+   Speed = Distance / Time
+          if time is constant
+	  
+   2(x+y) = x+2y+z
+   2x+2y  = x+2y+z
+       x  = z
+       
+```
+
+## LinkedList Cycle 2 - Leetcode
+```java
+   ListNode slow = head;
+   ListNode fast = head;
+   while(fast!=null && fast.next!=null){
+      fast = fast.next.next;
+      slow = slow.next;
+      if(slow==fast){
+         break;
+      }
+   }
+   
+   if(fast!=null && fast.next!=null){
+       return null;
+   }
+   slow = head;
+   while(slow!=fast){
+       slow = slow.next;
+       fast = fast.next;
+   }
+   return fast;
+```
+
+
+
+# Singly LinkedList Vs Circular LinkedList
+- Circular LinkedList or Cyclic LinkedList
+- Operating Systems uses this concept
+```
+   1 ----> 2 -----> 3 ------> instead pointing to null point 1 again
+   
+   1 --> | instead of pointing null point itself
+    
+```
+```Java
+   while(temp!=head){
+        temp = temp.next;
+   }
+```
+- How to insert element at head in circular linkedList
+
+
+# Doubly LinkedList
+```
+                  head                                                  tail
+   null<---[ prev | data | next] ---> [ prev | data | next] ---> [ prev | data | next] ---> null
+```
+```java
+   class Node{
+       int data;
+       Node prev;
+       Node next;
+   }
+   
+   class Node{
+        Node prev;
+	int data;
+	Node next;
+   }
+```
+- Advantange of Doubly LinkedList
+ - Traversal in both direction
+ - Easily delete the node beacuse of access of prev as well as next element
+ - node.prev.next = node.next;
+ - node.next.prev = node.prev;
+
+- Disadvantages of Doubly LinkedList
+ - Many refences have to handle
+ - Extra memory to store prev & next
