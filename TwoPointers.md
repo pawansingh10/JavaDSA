@@ -142,3 +142,95 @@ for(int i=0; i<n; i++){
        }
     }
  ```
+
+
+## ArrayList -> Parts of Java Collection Framework
+- ArrayList is like C++ vector
+- ArrayList mimics the behavior of array
+- ArrayList is Dynamic Size Array
+- Array's Drawback -> Fixed Size,Insertion, Deletion
+
+```
+               Obj
+                |
+                V
+   ArrayList <Integer> arr;
+   arr = new ArrayList<>();
+                         ^
+                         |
+                         constructor
+   arr = []
+   arr.add(5); // 5
+   arr.add(6); // [5,6]
+   
+   arr.size(); // 2
+   System.out.println(arr); // [5,6]
+   arr.add(index,val);
+   arr.add(1,7); // [5,7,6]
+   arr.addAll(arr2);//[5,7,6,1,2,3]
+   arr.addAll(index,arr);
+   arr.get(index);
+   arr.get(0); //5
+   arr.get(3); //1
+   
+   Arrays.sort(arr); // for array
+   Collections.sort(arr); // for arraylist
+   
+```
+- Wrapper Classes are classes having primitive data type inside it
+```Integer Character Float Double```
+
+- Interface
+  - Interfaces are like contract -> Only have signature not implementation
+  - Interfaces are like contracts that you will be writing
+ ```Java
+    Interface abc{
+         final int a =10;
+         int move(); // This method is mandatory to implement in Class
+    }
+ ```
+ ```
+    Interface               Interface              Interface
+      ^                         ^                      ^
+      | implements              | extends              |  extends
+      |                         |                      |
+    Class                    Interface               Class
+ ```
+
+```
+Interface
+List{
+     -----
+     -----
+     // only signature not implementation
+}
+
+class ArrayList implements List{
+     //
+     //
+     // implemenatation here
+}
+
+Instantiate a Class
+List <Integer> l = new ArrayList<>();
+List <Integer> ll = new LinkedList<>();
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
