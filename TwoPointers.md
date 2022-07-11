@@ -15,9 +15,130 @@
                    [3,15]==target
                     x,y
 ``` 
-- BruteForce
+- 1. BruteForce
   - 2 Nested Loop
   - O(n^2)
+```Java
+int[] arr = {1,2,3,4,8,14,15,25,30};
+int target = 18;
+for(int i=0; i<n; i++){
+    for(int j=i+1; j<n; j++){
+        if(arr[i]+arr[j]==target){
+             //
+        }
+    }
+}
+        
+```
 
-- HashMap Approach
-  - 
+- 2. HashMap Approach
+  - alpha + beta == target 
+  - beta = target - alpha
+
+- 3. 2Pointer Approach 
+   - Array needs to be sorted
+```
+                          same pair will be repeat in reverse order         26  >  18
+    --------------------->|<--------------                                  16  <  18
+   i=0;                   |            j=n-1                                17  <  18
+   [ 1,  2,  3,  4,  5,  8,  15,  25,  30 ]                                 18  == 18
+                          |
+                          |
+    target = 18
+    
+     if(arr[i]+arr[j]==target)
+     
+     if(sum>target){  // sum decrease
+          j--;
+     }
+     else if(sum<target){  // sum increase
+          i++;
+     }
+     else{
+         System.out.println(arr[i]+" "+arr[j]);
+         i++;
+         j--;
+     }
+
+    int n = arr.length;
+    int i=0;
+    int j=n-1;
+    while(i<j){
+       //
+    }
+ ```
+ 
+ ## Three Sum Leetcode
+ 1. O(n^3) -> 3 nested loop
+ ```
+   arr = [ -1, 0, 1, 2, -1, 4 ]
+   target = 0;
+   for( int i=0; i<n; i++){
+      for(int j=i+1; j<n; j++){
+         for(int k=j+1; k<n; k++){
+            
+         }
+      }
+   }
+   
+ ```
+ 
+ 2. Two pointer approach o(n^2)
+ ```
+ Array should be sorted O(nlogn)
+        i ->            <- j    
+     |
+ [ -4, -1, -1, 0, 0, 1, 3, 4 ]
+     |
+     |
+   Target = 0;
+   alpha + beta + gamma = 0
+   alpha + beta = -gamma
+   ____________    ______
+       ^             ^
+       |             |
+    2 Sum Array     loop to decide this value
+  [-4, 0, 4 ]
+  [-4, 1, 3 ]
+  [ 1, 0, 1 ]
+ ```
+ 
+ ```Java
+    int n = nums.length;
+    List<List<Integer>> ans = new ArrayList<>();
+    Arrays.sort(nums);
+    for(int i=0; i<n-2; i++){
+       int target = nums[i];
+       int start = i+1;
+       int end = n-1;
+       //Two Sum Problem
+       while(start<end){
+           int sum = nums[start]+nums[end];
+           if(sum<target){
+              start++;
+           }
+           else if(sum>target){
+              end--;
+           }
+           else{
+              List<Integer> l = new ArrayList <Integer> ();
+              l.add(nums[i]);
+              l.add(nums[start]);
+              l.add(nums[end]);
+              ans.add(l);
+              while(start<end && nums[start]==nums[start+1]){
+                 start++;
+              }
+              start++;
+              while(start<end && nums[end]==nums[end-1]){
+                  end--;
+              }
+              end--;
+           }
+       }
+       
+       while(i<n-2 && nums[i]==nums[i+1]){
+           i++;
+       }
+    }
+ ```
