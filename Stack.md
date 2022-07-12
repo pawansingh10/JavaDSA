@@ -14,11 +14,14 @@
       top--> |_1_| <--top
 ```
 
-- Open Google -> linkedIn.com -> Profile -> profilePicture
-- Open Google -> linkedIn.com->Profile <-
-- Open Google -> linkedIn.com <-
-- Open Google <-
-- <-
+* Application of Stack
+  - Open Google -> linkedIn.com -> Profile -> profilePicture
+  - Open Google -> linkedIn.com->Profile <-
+  - Open Google -> linkedIn.com <-
+  - Open Google <-
+  - <-
+
+  - Text = "abcd.."
 
 - Operations
 1. push()  -> insert an element at top
@@ -111,3 +114,7 @@ public class Main
 ```java
 
 ```
+
+
+## Validate Paranthesis Leetcode
+***
