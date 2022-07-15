@@ -342,11 +342,79 @@ public class Main
 * ***NSL - Next Smaller Element to Left***
 
 ## Next Greater Element to right
+- BruteForce O(n^2)
 ```Java
+public static long[] nextLargerElement(long[] arr, int n)
+    { 
+        // Your code here
+        long[] brr = new long[n];
+        long nextGreater=-1;
+        brr[n-1]=-1;
+        for(int i=0; i<n-1; i++){
+            for(int j=i+1; j<n; j++){
+                if(arr[j]>arr[i]){
+                    nextGreater=arr[j];
+                    break;
+                }
+                else{
+                    nextGreater=-1;
+                }
+            }
+            brr[i]=nextGreater;
+        }
+        return brr;
+    } 
 ```
-
+- Using Stack O(n)
 ```Java
+public static long[] nextLargerElement(long[] arr, int n)
+    { 
+        // Your code here
+       long[] ans = new long[n];
+       ans[n-1]=-1;
+       Stack<Long> s = new Stack<>();
+       s.push(arr[n-1]);
+       for(int i=n-2; i>=0; i--){
+           while(!s.empty() && s.peek()<arr[i]){
+               s.pop();
+           }
+           if(s.empty()){
+               ans[i]=-1;
+               s.push(arr[i]);
+           }
+           else{
+               ans[i]=s.peek();
+               s.push(arr[i]);
+           }
+       }
+       
+       return ans;
+    } 
 ```
 
 ## Stock Span Problem
-- [gfg](https://practice.geeksforgeeks.org/problems/stock-span-problem-1587115621/1#)
+- [Stock Spam Problem](https://practice.geeksforgeeks.org/problems/stock-span-problem-1587115621/1#)
+
+* Bruteforce
+```Java
+ public static int[] calculateSpan(int arr[], int n)
+    {
+        // Your code here
+        int[] ans = new int[n];
+        ans[0]=1;
+        for(int i=n-1; i>0; i--){
+             int count=1;
+            for(int j=i-1; j>=0; j--){
+                if(arr[j]<=arr[i]){
+                    count++;
+                }
+                else{
+                    break;
+                }
+            }
+            ans[i]=count;
+        }
+        
+        return ans;
+    }
+```
