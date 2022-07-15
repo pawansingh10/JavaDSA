@@ -340,3 +340,13 @@ public class Main
 * ***NGL - Next Greater Element to Left*** 
 * ***NSR - Next Smaller Element to Right***
 * ***NSL - Next Smaller Element to Left***
+
+## Next Greater Element to right
+```Java
+```
+
+```Java
+```
+
+## Stock Span Problem
+- [gfg](https://practice.geeksforgeeks.org/problems/stock-span-problem-1587115621/1#)
