@@ -418,3 +418,28 @@ public static long[] nextLargerElement(long[] arr, int n)
         return ans;
     }
 ```
+- Using stack like Next Greater Num to Left
+```Java
+  public static int[] calculateSpan(int arr[], int n)
+    {
+        // Your code here
+        int[] ans = new int[n];
+        ans[0]=1;
+        Stack<Integer> s = new Stack<>();
+        s.push(0);
+        for(int i=1; i<n; i++){
+            while(!s.empty() && arr[s.peek()]<=arr[i]){
+                s.pop();
+            }
+            if(s.empty()){
+                ans[i]=i+1;
+            }
+            else{
+                ans[i]=i-s.peek();
+            }
+            s.push(i);
+        }
+        
+        return ans;
+    }
+```
