@@ -43,7 +43,84 @@ q.poll(); // remove the front
 2. Using LinkedList
 
 ## Queue Implementation using Array
+```Java
+import java.util.*;
 
+class Queue{
+    int[] arr;
+    int front;
+    int rear;
+    Queue(){
+        arr = new int[100];
+        front = -1;
+        rear = -1;
+    }
+    void offer(int val){
+        if(front==-1 && rear==-1){
+            front=0;
+            rear=0;
+            arr[0]=val;
+        }
+        else{
+            arr[++rear]=val;
+        }
+    
+    }
+    
+    int poll(){
+        if(front==-1 && rear==-1){
+            return -1;
+        }
+        int x=arr[front];
+        front++;
+        return x;
+    }
+    
+    int peek(){
+        if(front==-1 && rear==-1){
+            return -1;
+        }
+        return arr[front];
+    }
+    
+    boolean empty(){
+        if(front==-1 & rear==-1){
+            return true;
+        }
+        return false;
+    }
+    
+    void printQ(){
+        int x=front;
+        for(int i=x; i<=rear; i++){
+            System.out.print(arr[x++]+" ");
+        }
+        System.out.println();
+    }
+}
+
+//Main Class
+public class Main
+{
+	public static void main(String[] args) {
+	    Queue q = new Queue();
+	    
+	    System.out.println(q.peek());
+	    System.out.println(q.empty());
+	    q.offer(1);
+	    q.offer(2);
+	    q.printQ();
+	    q.offer(3);
+	    q.offer(4);
+	    q.printQ();
+	    q.poll();
+	    q.printQ();
+	    System.out.println(q.empty());
+	    System.out.println(q.peek());
+	}
+}
+
+```
 
 
 ## Queue Implementation using LinkedList
@@ -58,6 +135,10 @@ Queue<Integer> q = new Queue<Integer>();
    |                     |
    V                     V
 Queue<Integer> q = new LinkedList<Integer>();
+```
+
+```Java
+  
 ```
 
 ## Implement Queue Using Stack --VVImp Classic Question LeetCode 232
