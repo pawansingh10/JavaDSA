@@ -138,7 +138,82 @@ Queue<Integer> q = new LinkedList<Integer>();
 ```
 
 ```Java
-  
+class Node{
+    int data;
+    Node next;
+    Node(int val){
+        data=val;
+    }
+}
+class Queue{
+    Node front;
+    Node rear;
+    Queue(){
+        front=null;
+        rear=null;
+    }
+    
+    void offer(int val){
+        Node newNode=new Node(val);
+        if(rear==null){
+            rear=newNode;
+            front=newNode;
+            return;
+        }
+        rear.next=newNode;
+        rear=newNode;
+    }
+    
+    int poll(){
+        if(front==null && rear==null){
+            return -1;
+        }
+        Node temp=front;
+        front=front.next;
+        return temp.data;
+    }
+    
+    int peek(){
+        if(front==null && rear==null){
+            return -1;
+        }
+        return front.data;
+    }
+    
+    boolean empty(){
+        return front==null && rear==null;
+    }
+    
+    void printQ(){
+        Node temp=front;
+        while(temp!=null){
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+            
+        }
+        System.out.println();
+    }
+}
+
+//Main Class
+public class Main
+{
+	public static void main(String[] args) {
+	    Queue q = new Queue();
+	    
+	    System.out.println(q.peek());
+	    System.out.println(q.empty());
+	    q.offer(8);
+	    q.offer(2);
+	    q.offer(3);
+	    q.offer(4);
+	    q.printQ();
+	    q.poll();
+	    q.printQ();
+	    System.out.println(q.empty());
+	    System.out.println(q.peek());
+	}
+}  
 ```
 
 ## Implement Queue Using Stack --VVImp Classic Question LeetCode 232
