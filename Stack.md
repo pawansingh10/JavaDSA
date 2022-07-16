@@ -477,8 +477,9 @@ public int largestRectangleArea(int[] heights) {
 class MinStack {
     Stack<Integer> st;
     int min;
+    //In the Constructor we will do memory allocation
     public MinStack() {
-        st = new Stack<Integer>();
+        st = new Stack<Integer>(); 
         min = Integer.MAX_VALUE;
         
     }
