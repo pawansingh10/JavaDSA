@@ -343,6 +343,7 @@ public class Main
 
 ## Next Greater Element to right
 - BruteForce O(n^2)
+- [Next Greater Element to Right](https://practice.geeksforgeeks.org/problems/next-larger-element-1587115620/1)
 ```Java
 public static long[] nextLargerElement(long[] arr, int n)
     { 
@@ -442,4 +443,73 @@ public static long[] nextLargerElement(long[] arr, int n)
         
         return ans;
     }
+```
+
+## Largest Rectangle in Histogram LeetCode - Leetcode 84 (Google)
+- [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/)
+- Base is like Next Greater Element
+- Bruteforce Approach
+```Java
+public int largestRectangleArea(int[] heights) {
+        Arrays.sort(heights);
+        int n=heights.length;
+        if(n==0){
+            return 0;
+        }
+        else if(n==1){
+            return heights[n-1];
+        }
+        if(heights[n-2]==heights[n-1]){
+            return heights[n-1]+heights[n-2];
+        }
+        else {
+            return Math.max(heights[n-2]*2, heights[n-1]);
+        }
+    
+    }
+```
+```Java
+```
+
+## Min Stack Leetcode 155
+- [Min Stack](https://leetcode.com/problems/min-stack/)
+```Java
+class MinStack {
+    Stack<Integer> st;
+    int min;
+    public MinStack() {
+        st = new Stack<Integer>();
+        min = Integer.MAX_VALUE;
+        
+    }
+    
+    public void push(int val) {
+        if(val<=min){
+            st.push(min);
+            min=val;
+        }
+        st.push(val);
+    }
+    
+    public void pop() {
+        
+        if(!st.empty()){
+            int x=st.pop();
+            if(x==min){
+                min=st.pop();
+            }
+        }
+        
+    }
+    
+    public int top() {
+        return st.peek();
+        
+    }
+    
+    public int getMin() {
+        return min;
+    }
+}
+
 ```
