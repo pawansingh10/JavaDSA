@@ -571,3 +571,51 @@ class MinStack {
     }
 
 ```
+
+## 735. Asteroid Collision
+- [735. Asteroid Collision](https://leetcode.com/problems/asteroid-collision/)
+
+```Java
+class Solution {
+    public int[] asteroidCollision(int[] a) {
+        Stack<Integer> st = new Stack<>();
+        int n=a.length;
+        int i=0;
+        while(i<n){
+            int flag=0;
+            if(st.empty() || a[i]>0){
+                st.push(a[i]);
+            }
+            else{
+                while(!st.empty() && st.peek()>0){
+                    if(st.peek()>Math.abs(a[i])){
+                        flag=1;
+                        break;
+                    }
+                    else if(st.peek()==Math.abs(a[i])){
+                        flag=1;
+                        st.pop();
+                        break;
+                    }
+                    else{
+                        st.pop();
+                    }
+                    if(flag==0){
+                        st.push(a[i]);
+                    }
+                }
+            }
+            i++;
+        }
+        
+        int[] ans=new int[st.size()];
+        int j=st.size()-1;
+        while(!st.empty()){
+            ans[j]=st.pop();
+            j--;
+        }
+        
+        return ans;
+    }
+}
+```
