@@ -222,3 +222,25 @@ public class Main
 ## Implement Stack Using Queues --VVImp Classic Question LeetCode 225
 - [225. Implement Stack using Queues](https://leetcode.com/problems/implement-stack-using-queues/)
 
+
+## Reverse first kth element  of the queue GFG
+-[Reverse first kth element  of the queue](https://practice.geeksforgeeks.org/problems/reverse-first-k-elements-of-queue/1)
+
+```Java
+public Queue<Integer> modifyQueue(Queue<Integer> q, int k) {
+        Stack<Integer> st = new Stack<>();
+        for(int i=1; i<=k; i++){
+            st.push(q.poll());
+        }
+        while(!st.empty()){
+            q.offer(st.pop());
+        }
+        
+        int l=q.size()-k;
+        for(int j=1; j<=l; j++){
+            q.offer(q.poll());
+        }
+
+        return q;
+    }
+```
