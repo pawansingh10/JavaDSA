@@ -85,4 +85,65 @@ public class Main
 }
 ```
 
+## Binary Search - Iteratively && Recursively
+```Java
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+	  Scanner sc=new Scanner(System.in);
+      int n = sc.nextInt();
+      int target = sc.nextInt();
+      int[] arr = new int[n];
+      for(int i=0; i<n; i++){
+        arr[i]=sc.nextInt();
+      }
+      //binarySearch Iteratively
+      System.out.println(bs(arr,target,0, arr.length-1));
+      //binarySearch Recursively
+      System.out.println(bSearch(arr,target,0, arr.length-1));
+	}
+
+  public static int bs(int[] arr, int target){
+    int l=arr.length;
+    int start=0;
+    int end=l-1;
+    while(start<=end){
+      int mid = (start+end)/2;
+      if(arr[mid]==target){
+        return mid;
+      }
+      else if(arr[mid]<target){
+        start=mid+1;
+      }
+      else{
+        end=mid-1;
+      }
+    }
+    return -1;
+    
+  }
+  
+  public static int bSearch(int[] arr, int target, int start, int end){
+      if(start>end){
+          return -1;
+      }
+      int mid = start+(end-start)/2;
+      if(arr[mid]<target){
+          return bSearch(arr,target,mid+1,end);
+      }
+      else if(arr[mid]>target){
+          return bSearch(arr,target,start,mid-1);
+      }
+      else{
+          return mid;
+      }
+  }
+}
+
+```
 
