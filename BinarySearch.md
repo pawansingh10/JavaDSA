@@ -347,9 +347,12 @@ public class Main
 
 ```
 
-## 7. # of times a sorted array is rotated
+## 7. Number of times a sorted array is rotated
 - Imp Problem statement
-
+   - Num of Rotation = minimum index
+   - min number both adjacent will be greater
+   - min number always lies in unsorted part of array
+   - To control overflow n%i
 
 ```Bash
     0 1 2 3 4  5  6   7
