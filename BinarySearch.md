@@ -384,6 +384,76 @@ public class Main
    if(arr[mid]==x)
    
 ```
+- Linear So O(n)
 ```Java
+public class Main
+{
+	public static void main(String[] args) {
+	    int[] a = {2,5,6,8,11,12,15,18};
+		int[] arr = {5,6,8,11,12,15,18,2};
+		System.out.println(totalRotation(arr));
+	}
+	
+	public static int totalRotation(int[] arr){
+	    int n=arr.length;
+	    int idx=-1;
+	    int min=Integer.MAX_VALUE;
+	    for(int i=0; i<n; i++){
+	        if(arr[i]<min){
+	            min=arr[i];
+	            idx=i;
+	        }
+	    }
+	   // System.out.println(idx);
+	    return idx;
+	    
+	}
+}
 
 ```
+
+- Since array is sorted so we can do this in o(logn) by using Binary Search
+
+```Java
+public class Main
+{
+	public static void main(String[] args) {
+	    int[] a = {2,5,6,8,11,12,15,18};
+	    int[] b = {11,12,15,18,2,5,6,8};
+		int[] arr = {5,6,8,11,12,15,18,2};
+		System.out.println("Array is rotated "+totalRotation(b)+" times");
+	}
+	
+	public static int totalRotation(int[] arr){
+	    int n = arr.length;
+	    int start = 0;
+	    int end = n-1;
+	    int mid=-1;
+	    while(start<=end){
+	        //Case 1 : if array is already sorted return start which is having the minimum num
+	        if(arr[start]<=arr[end]){
+	            return start;
+	        }
+	        //control the overflow like for the last index next will be the first index
+	        // same as for the first index prev will be the last index
+	        mid=(start+end)/2;
+	        int next=(mid+1)%n;
+	        int prev=(mid+n-1)%n;
+	        if(arr[mid]>=arr[next] && arr[mid]<=arr[next]){
+	            return mid;
+	        }
+	        else if(arr[mid]<=arr[end]){
+	            end=mid-1;
+	        }
+	        else if(arr[mid]>=arr[start]){
+	            start=mid+1;
+	        }
+	    }
+	    
+	    return mid;
+	}
+}
+
+```
+
+## 8. 
