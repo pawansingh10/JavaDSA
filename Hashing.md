@@ -35,10 +35,10 @@
 1. Hash Table
 2. Hash Function
 3. A good hash function should have following properties:
-i.   Efficiently computable. 
-ii.  Should uniformly distribute the keys (Each table position equally likely for each).
-iii. Should minimize collisions.
-iv.  Should have a low load factor(number of items in table divided by size of the table)
+ - i.   Efficiently computable. 
+ - ii.  Should uniformly distribute the keys (Each table position equally likely for each).
+ - iii. Should minimize collisions.
+ - iv.  Should have a low load factor(number of items in table divided by size of the table)
 ***
 
 ***
