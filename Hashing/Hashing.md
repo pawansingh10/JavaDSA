@@ -70,4 +70,4 @@ public class Main
 }
 ```
 
-### [JavaHAshMap](https://www.w3schools.com/java/java_hashmap.asp)
+### Please Visit this Article [Java HashMap](https://www.w3schools.com/java/java_hashmap.asp)
