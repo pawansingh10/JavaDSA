@@ -83,5 +83,81 @@ public class Main
 
 ### Please Visit this Article [Java HashMap](https://www.w3schools.com/java/java_hashmap.asp)
 
-### [Valid Anagram](https://leetcode.com/problems/valid-anagram)
+### LeetCode [Valid Anagram](https://leetcode.com/problems/valid-anagram)
+```Java
+public boolean isAnagram(String s, String t) {
+        /*
+        1. Create a Freq Map
+        2. If the fre of all char are same in both string return true else return false 
+        3. So checking count we need to reduce count at the end the freq of all char ==0
+        */
+        int m =s.length();
+        int n =t.length();
+        if(m!=n){
+            return false;
+        }
+        
+        HashMap<Character,Integer> hm = new HashMap<>();
+        
+        for(int i=0; i<m; i++){
+            char c = s.charAt(i);
+            hm.put(c,hm.getOrDefault(c,0)+1);
+        }
+        
+        for(int i=0; i<n; i++){
+            char c = t.charAt(i);
+            hm.put(c,hm.getOrDefault(c,0)-1);
+        }
+    
+        for(int x : hm.values()){
+            if(x!=0){
+                return false;
+            }
+        } 
+        return true;
+    }
+```
+### HashMap Traversal | keySet | entrySet
+```Java
+import java.util.*;
+
+public class Main
+{
+	public static void main(String[] args) {
+		
+		HashMap<Integer,Integer> hm = new HashMap<>();
+		
+		for(int i=1; i<=5; i++){
+		    hm.put(i,10*i);
+		}
+// 		hm.put(-1,-10);
+// 		hm.put(-4,-40);
+// 		System.out.println(hm);
+		
+// 		for(int i:hm.keySet()){
+// 		    System.out.print(i+"->"+hm.get(i)+" ");
+// 		}
+// 		System.out.println();
+		
+		
+// 		for(int i : hm.values()){
+// 		    System.out.print(i+" ");
+// 		}
+		
+		System.out.println(hm.entrySet());
+// 		for(int i : hm.entrySet()){
+// 		    System.out.print(i);
+// 		}
+		
+		
+		
+		for (HashMap.Entry<Integer, Integer> entry :hm.entrySet())
+        {
+            System.out.println(entry.getKey() + "=" + entry.getValue());
+        }
+       
+	}
+}
+
+```
 
