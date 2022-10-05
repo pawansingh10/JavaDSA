@@ -64,10 +64,24 @@ public class Main
 		for(int i=0; i<n; i++){
 		    hm.put(arr[i],hm.getOrDefault(arr[i],0)+1);
 		}
+		System.out.println(hm);
 		
+		//Another way
+		for(int i=0; i<n; i++){
+		   if(hm.get(arr[i])==null){
+		       hm.put(arr[i],1);
+		   }
+		   else{
+		       hm.put(arr[i],hm.get(arr[i])+1);
+		   }
+		}
 		System.out.println(hm);
 	}
 }
+
 ```
 
 ### Please Visit this Article [Java HashMap](https://www.w3schools.com/java/java_hashmap.asp)
+
+### [Valid Anagram](https://leetcode.com/problems/valid-anagram)
+
