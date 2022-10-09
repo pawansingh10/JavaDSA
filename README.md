@@ -1,5 +1,5 @@
 # JavaDSA
-
+## How to Learn DSA [visit](https://www.quora.com/How-do-I-start-learning-or-strengthen-my-knowledge-of-data-structures-and-algorithms/answer/Robin-Thomas-16?ch=10&share=b75f2f48&srid=6FkO)
 ## DSA by Java Repository 
 
 - ***Success is Vector(Magnitude+Direction)***
