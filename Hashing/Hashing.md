@@ -161,3 +161,15 @@ public class Main
 
 ```
 
+### ASCII - American Standard Code for Information Interchange
+- Every char is assigned a number
+- ```Java
+ public class Main
+{
+	public static void main(String[] args) {
+	    int ch1 ='a';
+	    char ch2 = 'a';
+		System.out.println(ch1); // 97
+		System.out.println(ch2); // a
+	}
+}```
